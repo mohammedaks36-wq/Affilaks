@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STORE CHOPE OFFICIEL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-2: #f1f5f9;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --primary: #0f172a;
+      --primary-contrast: #ffffff;
+      --accent: #d97706;
+      --accent-soft: #fef3c7;
+      --success: #059669;
+      --success-soft: #d1fae5;
+      --danger: #dc2626;
+      --danger-soft: #fee2e2;
+      --warning: #d97706;
+      --warning-soft: #fef3c7;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.12);
+      --shadow-sm: 0 2px 10px rgba(15, 23, 42, 0.05);
+      --font-ar: 'Cairo', sans-serif;
+      --font-fr: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-ar);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+      transition: background 0.25s ease, color 0.25s ease;
+      padding-bottom: 40px;
+    }
+    body[data-lang="fr"] {
+      font-family: var(--font-fr);
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      color: inherit;
+    }
+    button { cursor: pointer; border: none; background: none; }
+    img { display: block; max-width: 100%; }
+
+    /* Top Bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-logo-mini {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: var(--primary-contrast);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+    .brand-title {
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.4px;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .lang-switch {
+      display: inline-flex;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+    }
+    .lang-btn {
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      transition: all 0.2s ease;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      color: var(--primary-contrast);
+    }
+
+    .dash-trigger-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: var(--primary-contrast);
+      font-weight: 700;
+      font-size: 13px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .dash-trigger-btn:hover { opacity: 0.94; transform: translateY(-1px); }
+
+    /* Container */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 18px 16px;
+    }
+
+    /* Store Banner */
+    .store-banner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+    }
+    .store-banner-media {
+      min-height: 250px;
+      max-height: 340px;
+      position: relative;
+      background: var(--surface-2);
+      overflow: hidden;
+    }
+    .store-banner-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .store-banner-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+    .store-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .store-banner-content h1 {
+      font-size: clamp(22px, 3.2vw, 32px);
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .store-banner-content p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .store-meta-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* Categories Bar */
+    .categories-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 18px;
+      scrollbar-width: none;
+    }
+    .categories-bar::-webkit-scrollbar { display: none; }
+    .cat-pill {
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .cat-pill.active {
+      background: var(--primary);
+      color: var(--primary-contrast);
+      border-color: var(--primary);
+    }
+
+    /* Products Grid - Clean Card: Image, Price, Description Only */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent);
+    }
+    .product-thumb-wrap {
+      aspect-ratio: 4 / 3;
+      background: var(--surface-2);
+      overflow: hidden;
+      position: relative;
+    }
+    .product-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+    .product-card:hover .product-thumb-wrap img {
+      transform: scale(1.04);
+    }
+    .product-card-body {
+      padding: 15px 16px 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+    .product-price {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .product-desc {
+      font-size: 13px;
+      color: var(--muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.58);
+      backdrop-filter: blur(5px);
+      z-index: 70;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      overflow-y: auto;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal-box {
+      width: 100%;
+      max-width: 720px;
+      max-height: 92vh;
+      overflow-y: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+      animation: popIn 0.2s ease;
+    }
+    .modal-box.wide {
+      max-width: 1120px;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.97) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .modal-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .modal-title {
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .close-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--surface-2);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .close-btn:hover { background: var(--danger-soft); color: var(--danger); }
+
+    .modal-body {
+      padding: 18px;
+    }
+
+    /* Product Detail Gallery & Form */
+    .detail-gallery-main {
+      aspect-ratio: 16 / 10;
+      max-height: 340px;
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      margin-bottom: 10px;
+    }
+    .detail-gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .detail-thumbs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+    }
+    .detail-thumb {
+      width: 68px;
+      height: 54px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      background: var(--surface-2);
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+    .detail-thumb.active {
+      border-color: var(--accent);
+      opacity: 1;
+    }
+    .detail-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .detail-info-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+    .detail-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .detail-price {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .cod-badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--success-soft);
+      color: var(--success);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .detail-desc {
+      font-size: 14px;
+      color: var(--text);
+      white-space: pre-line;
+    }
+
+    /* Strict Order Form */
+    .order-form-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      background: var(--surface);
+    }
+    .form-section-title {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+    .form-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .req-star {
+      color: var(--danger);
+      font-weight: 800;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .form-control:focus {
+      border-color: var(--accent);
+    }
+    .form-control.invalid {
+      border-color: var(--danger);
+      background: #fff5f5;
+    }
+
+    /* Choice chips for colors & sizes */
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .choice-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.15s ease;
+    }
+    .choice-chip.selected {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: var(--primary-contrast);
+    }
+    .color-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      flex-shrink: 0;
+    }
+
+    .error-alert {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: var(--danger-soft);
+      color: var(--danger);
+      font-size: 13px;
+      font-weight: 700;
+      display: none;
+    }
+    .error-alert.show { display: block; }
+
+    .success-box {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: var(--success-soft);
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      display: none;
+    }
+    .success-box.show { display: block; }
+    .success-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .submit-order-btn {
+      margin-top: 14px;
+      width: 100%;
+      padding: 13px 18px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: var(--primary-contrast);
+      font-size: 15px;
+      font-weight: 800;
+      transition: opacity 0.2s ease, transform 0.15s ease;
+    }
+    .submit-order-btn:hover { opacity: 0.94; transform: translateY(-1px); }
+
+    /* Dashboard Styles */
+    .dash-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .dash-tab {
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      background: var(--surface-2);
+      white-space: nowrap;
+    }
+    .dash-tab.active {
+      background: var(--primary);
+      color: var(--primary-contrast);
+    }
+    .dash-panel { display: none; }
+    .dash-panel.active { display: block; }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .kpi-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+    }
+    .kpi-label { font-size: 12px; color: var(--muted); font-weight: 700; }
+    .kpi-val { font-size: 22px; font-weight: 800; margin-top: 4px; }
+
+    .dash-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .dash-card-title {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: start;
+      white-space: nowrap;
+    }
+    th {
+      background: var(--surface-2);
+      font-weight: 800;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .badge-ok { background: var(--success-soft); color: var(--success); }
+    .badge-warn { background: var(--warning-soft); color: var(--warning); }
+    .badge-bad { background: var(--danger-soft); color: var(--danger); }
+    .badge-info { background: #e0e7ff; color: #3730a3; }
+
+    .btn-sm {
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+    .btn-sm.primary {
+      background: var(--primary);
+      color: var(--primary-contrast);
+      border-color: var(--primary);
+    }
+    .btn-sm.danger {
+      background: var(--danger-soft);
+      color: var(--danger);
+      border-color: #fecaca;
+    }
+
+    /* 10 Instant Designs Grid */
+    .designs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 12px;
+    }
+    .design-card {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .design-card:hover { transform: translateY(-2px); }
+    .design-card.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.16);
+    }
+    .design-swatches {
+      display: flex;
+      gap: 6px;
+      height: 28px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .design-swatches div { flex: 1; }
+    .design-name { font-size: 13px; font-weight: 800; }
+
+    .toast {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--primary);
+      color: var(--primary-contrast);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      z-index: 100;
+      opacity: 0;
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow);
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 780px) {
+      .store-banner {
+        grid-template-columns: 1fr;
+      }
+      .store-banner-media {
+        min-height: 190px;
+        max-height: 230px;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-lang="ar">
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-box">
+        <div class="brand-logo-mini">SC</div>
+        <div>
+          <div class="brand-title">STORE CHOPE OFFICIEL</div>
+          <div class="brand-sub" data-i18n="topSub">ملابس • أحذية • حقائب — الدفع عند الاستلام (DH)</div>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <div class="lang-switch" role="group" aria-label="Language Switcher">
+          <button type="button" class="lang-btn active" data-set-lang="ar">العربية</button>
+          <button type="button" class="lang-btn" data-set-lang="fr">Français</button>
+        </div>
+
+        <button type="button" class="dash-trigger-btn" id="openDashBtn" title="Settings" aria-label="Settings" style="padding:8px 11px;font-size:16px;line-height:1;">
+          <span>⚙️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Storefront -->
+  <main class="container">
+    <!-- Store Banner -->
+    <section class="store-banner">
+      <div class="store-banner-media">
+        <img id="storeBannerImg" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80" alt="STORE CHOPE OFFICIEL" onerror="this.src='https://placehold.co/1000x600/f1f5f9/0f172a?text=STORE+CHOPE+OFFICIEL'" />
+      </div>
+      <div class="store-banner-content">
+        <span class="store-tag" id="storeBadgeText">STORE CHOPE OFFICIEL • COD (DH)</span>
+        <h1 id="storeHeroTitle">STORE CHOPE OFFICIEL</h1>
+        <p id="storeHeroDesc">تشكيلة مختارة من الملابس، الأحذية، والحقائب العصرية بجودة عالية والدفع عند الاستلام بالدرهم المغربي.</p>
+        <div class="store-meta-inline">
+          <span>📱 0636914289</span>
+          <span>✉️ mohammedaks36@gmail.com</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <nav class="categories-bar" id="categoriesBar">
+      <button type="button" class="cat-pill active" data-cat="all" data-i18n="catAll">الكل</button>
+      <button type="button" class="cat-pill" data-cat="clothes" data-i18n="catClothes">الملابس</button>
+      <button type="button" class="cat-pill" data-cat="shoes" data-i18n="catShoes">الأحذية</button>
+      <button type="button" class="cat-pill" data-cat="bags" data-i18n="catBags">الحقائب</button>
+    </nav>
+
+    <!-- Products Grid (Image, Price, Description Only) -->
+    <section class="products-grid" id="productsGrid"></section>
+  </main>
+
+  <!-- Product Details & Strict Order Modal -->
+  <div class="modal-backdrop" id="productModal" aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title" id="modalProductTitle">تفاصيل المنتج</div>
+        <button type="button" class="close-btn" id="closeProductModal">✕</button>
+      </div>
+      <div class="modal-body" id="productModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Secret PIN Modal for Dashboard -->
+  <div class="modal-backdrop" id="pinModal" aria-hidden="true">
+    <div class="modal-box" style="max-width:420px;">
+      <div class="modal-header">
+        <div class="modal-title" id="pinModalTitle">رمز الدخول السري</div>
+        <button type="button" class="close-btn" id="closePinModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:13px;color:var(--muted);margin-bottom:12px;" id="pinModalDesc">
+          أدخل الكود السري للوصول إلى لوحة تحكم STORE CHOPE OFFICIEL.
+        </p>
+        <form id="pinVerifyForm">
+          <div class="form-group">
+            <label class="form-label" id="pinInputLabel">الكود السري</label>
+            <input type="password" class="form-control" id="pinInputField" placeholder="••••" required autocomplete="off" />
+          </div>
+          <div class="error-alert" id="pinErrorMsg">الكود السري غير صحيح، حاول مرة أخرى.</div>
+          <button type="submit" class="submit-order-btn" id="pinSubmitBtn">دخول</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Modal -->
+  <div class="modal-backdrop" id="dashboardModal" aria-hidden="true">
+    <div class="modal-box wide">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" data-i18n="dashTitle">لوحة تحكم STORE CHOPE OFFICIEL</div>
+          <div style="font-size:12px;color:var(--muted);" data-i18n="dashSub">إدارة المنتجات، الطلبيات، الزوار، الربط، و10 تصاميم جاهزة</div>
+        </div>
+        <button type="button" class="close-btn" id="closeDashboardModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="dash-tabs" id="dashTabs">
+          <button type="button" class="dash-tab active" data-tab="overview" data-i18n="tabOverview">نظرة عامة والزوار</button>
+          <button type="button" class="dash-tab" data-tab="orders" data-i18n="tabOrders">الطلبيات</button>
+          <button type="button" class="dash-tab" data-tab="addProduct" data-i18n="tabAddProduct">إضافة منتج</button>
+          <button type="button" class="dash-tab" data-tab="productsList" data-i18n="tabProducts">جداول المنتجات</button>
+          <button type="button" class="dash-tab" data-tab="designs" data-i18n="tabDesigns">10 تصاميم</button>
+          <button type="button" class="dash-tab" data-tab="settings" data-i18n="tabSettings">المتجر والربط (API / WhatsApp)</button>
+        </div>
+
+        <!-- Tab 1: Overview & Visitors -->
+        <div class="dash-panel active" id="panel-overview">
+          <div class="kpi-grid" id="kpiGrid"></div>
+
+          <div class="dash-card">
+            <div class="dash-card-title" data-i18n="visitorsTitle">سجل الزوار والنشاط (شكون اللي دخل)</div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="colTime">الوقت</th>
+                    <th data-i18n="colVisitor">الزائر / الجهاز</th>
+                    <th data-i18n="colLang">اللغة</th>
+                    <th data-i18n="colActivity">النشاط</th>
+                  </tr>
+                </thead>
+                <tbody id="visitorsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Orders (Sent/Pending, Accepted/Rejected, Delivered/Not Delivered) -->
+        <div class="dash-panel" id="panel-orders">
+          <div class="dash-card">
+            <div class="dash-card-title" data-i18n="ordersSentTitle">الطلبات التي مشات (المؤكدة / المرسلة)</div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th data-i18n="colCustomer">الزبون والهاتف</th>
+                    <th data-i18n="colCity">المدينة والعنوان</th>
+                    <th data-i18n="colItemSpecs">المنتج / اللون / القياس / الكمية</th>
+                    <th data-i18n="colChannel">المسار</th>
+                    <th data-i18n="colAccept">القبول</th>
+                    <th data-i18n="colDelivery">الوصول</th>
+                    <th data-i18n="colActions">تحكم</th>
+                  </tr>
+                </thead>
+                <tbody id="sentOrdersBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-title" data-i18n="ordersPendingTitle">الطلبات التي مازال ما تأكداتش (قيد الانتظار / غير مؤكدة)</div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th data-i18n="colCustomer">الزبون والهاتف</th>
+                    <th data-i18n="colCity">المدينة والعنوان</th>
+                    <th data-i18n="colItemSpecs">المنتج / اللون / القياس / الكمية</th>
+                    <th data-i18n="colChannel">المسار</th>
+                    <th data-i18n="colActions">تحكم</th>
+                  </tr>
+                </thead>
+                <tbody id="pendingOrdersBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Add Product -->
+        <div class="dash-panel" id="panel-addProduct">
+          <div class="dash-card">
+            <div class="dash-card-title" data-i18n="addProdTitle">إضافة منتج جديد (مع الألوان، القياسات، والكمية)</div>
+            <form id="addProductForm" class="form-grid">
+              <div class="form-group">
+                <label class="form-label" data-i18n="lblProdNameAr">اسم المنتج (عربي) *</label>
+                <input type="text" class="form-control" id="npNameAr" required placeholder="مثال: معطف كلاسيكي أنيق" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-i18n="lblProdNameFr">Nom du produit (Français) *</label>
+                <input type="text" class="form-control" id="npNameFr" required placeholder="Ex: Manteau Classique Élégant" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="lblCategory">القسم *</label>
+                <select class="form-control" id="npCategory" required>
+                  <option value="clothes">الملابس (Vêtements)</option>
+                  <option value="shoes">الأحذية (Chaussures)</option>
+                  <option value="bags">الحقائب (Sacs)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-i18n="lblSourceType">نوع المنتج *</label>
+                <select class="form-control" id="npSourceType" required>
+                  <option value="own">منتج خاص بالمتجر (Produit Propre)</option>
+                  <option value="affiliate">منتج من منصة أفيلييت (Produit Affiliate / API)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="lblPriceDh">الثمن بالدرهم (DH) *</label>
+                <input type="number" min="1" step="1" class="form-control" id="npPrice" required placeholder="249" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-i18n="lblStockQty">الكمية المتوفرة في المخزون *</label>
+                <input type="number" min="1" step="1" class="form-control" id="npQty" required value="20" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="lblColors">الألوان المتوفرة (افصل بفاصلة) *</label>
+                <input type="text" class="form-control" id="npColors" required value="أسود, أبيض, بيج" placeholder="أسود, أحمر, أزرق" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-i18n="lblSizes">القياسات المتوفرة (افصل بفاصلة) *</label>
+                <input type="text" class="form-control" id="npSizes" required value="S, M, L, XL" placeholder="S, M, L, XL أو 38, 39, 40" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="lblOrderRoute">وجهة الطلب عند التأكيد *</label>
+                <select class="form-control" id="npRoute" required>
+                  <option value="whatsapp">واتساب مباشر (0636914289)</option>
+                  <option value="affiliate_api">منصة الأفيلييت تلقائياً (API)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-i18n="lblUploadImg">رفع صور من الهاتف (أو وضع رابط)</label>
+                <input type="file" accept="image/*" multiple class="form-control" id="npFileInput" />
+              </div>
+
+              <div class="form-group full">
+                <label class="form-label" data-i18n="lblImgUrl">روابط الصور (مفصولة بفاصلة ،)</label>
+                <input type="text" class="form-control" id="npImgUrls" required value="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="lblDescAr">الوصف (عربي) *</label>
+                <textarea rows="3" class="form-control" id="npDescAr" required placeholder="وصف مختصر وواضح للمنتج..."></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-i18n="lblDescFr">Description (Français) *</label>
+                <textarea rows="3" class="form-control" id="npDescFr" required placeholder="Description claire du produit..."></textarea>
+              </div>
+
+              <div class="form-group full">
+                <button type="submit" class="submit-order-btn" data-i18n="btnSaveProduct">حفظ وإضافة المنتج للمتجر</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Tab 4: Separate Tables for Own Products vs Affiliate Products -->
+        <div class="dash-panel" id="panel-productsList">
+          <div class="dash-card">
+            <div class="dash-card-title" data-i18n="ownProductsTableTitle">جدول المنتجات الخاصة بالمتجر (المنتجات الخاصة)</div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="colProd">المنتج</th>
+                    <th data-i18n="colCat">القسم</th>
+                    <th data-i18n="colPrice">الثمن</th>
+                    <th data-i18n="colStock">الكمية</th>
+                    <th data-i18n="colColorsSizes">الألوان / القياسات</th>
+                    <th data-i18n="colRoute">الوجهة</th>
+                    <th data-i18n="colActions">تحكم</th>
+                  </tr>
+                </thead>
+                <tbody id="ownProductsBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-title" data-i18n="affProductsTableTitle">جدول المنتجات القادمة من منصات الأفيلييت (Affiliate / API)</div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="colProd">المنتج</th>
+                    <th data-i18n="colCat">القسم</th>
+                    <th data-i18n="colPrice">الثمن</th>
+                    <th data-i18n="colStock">الكمية</th>
+                    <th data-i18n="colColorsSizes">الألوان / القياسات</th>
+                    <th data-i18n="colRoute">الوجهة</th>
+                    <th data-i18n="colActions">تحكم</th>
+                  </tr>
+                </thead>
+                <tbody id="affiliateProductsBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 5: 10 Instant Designs -->
+        <div class="dash-panel" id="panel-designs">
+          <div class="dash-card">
+            <div class="dash-card-title" data-i18n="designsTitle">10 تصاميم جاهزة للمتجر — بدّل بنقرة واحدة</div>
+            <div class="designs-grid" id="designsGrid"></div>
+          </div>
+        </div>
+
+        <!-- Tab 6: Store, WhatsApp & Affiliate API Settings -->
+        <div class="dash-panel" id="panel-settings">
+          <div class="dash-card">
+            <div class="dash-card-title" data-i18n="storeInfoTitle">إعدادات المتجر وصورة المتجر</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">اسم المتجر</label>
+                <input type="text" class="form-control" id="cfgStoreName" value="STORE CHOPE OFFICIEL" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">رقم الواتساب (بدون + أو بصيغة 212...)</label>
+                <input type="text" class="form-control" id="cfgWhatsapp" value="212636914289" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">البريد الإلكتروني</label>
+                <input type="email" class="form-control" id="cfgEmail" value="mohammedaks36@gmail.com" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">رفع صورة المتجر من الهاتف</label>
+                <input type="file" accept="image/*" class="form-control" id="cfgBannerFile" />
+              </div>
+              <div class="form-group full">
+                <label class="form-label">رابط صورة المتجر</label>
+                <input type="text" class="form-control" id="cfgBannerUrl" value="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80" />
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-title" data-i18n="apiTitle">إعدادات الربط التلقائي مع منصات الأفيلييت (API)</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">تفعيل الإرسال التلقائي عبر API</label>
+                <select class="form-control" id="cfgApiEnabled">
+                  <option value="false">غير مفعل حالياً (حفظ محلي + واتساب)</option>
+                  <option value="true">مفعل (إرسال تلقائي لرابط API)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">اسم منصة الأفيلييت</label>
+                <input type="text" class="form-control" id="cfgAffPlatform" placeholder="مثال: Lamia / CodNetwork / Affiliate API" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">رابط نقطة الربط (API Endpoint URL)</label>
+                <input type="url" class="form-control" id="cfgApiUrl" placeholder="https://api.platform.com/orders" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">مفتاح الربط (API Key / Token)</label>
+                <input type="password" class="form-control" id="cfgApiKey" placeholder="••••••••••••••••" />
+              </div>
+              <div class="form-group full">
+                <label class="form-label">كود الدخول السري للوحة التحكم (PIN)</label>
+                <input type="text" class="form-control" id="cfgAdminPin" placeholder="1234" />
+              </div>
+              <div class="form-group full">
+                <button type="button" class="submit-order-btn" id="saveSettingsBtn" data-i18n="btnSaveSettings">حفظ جميع الإعدادات</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-title" data-i18n="backupTitle">نسخة احتياطية واسترجاع البيانات (Export / Import)</div>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:12px;" data-i18n="backupDesc">
+              احفظ نسخة من جميع المنتجات، الطلبيات، والإعدادات في ملف على هاتفك حتى لا تضيع عند تغيير المتصفح أو مسح البيانات.
+            </p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+              <button type="button" class="btn-sm primary" id="exportBackupBtn" style="padding:10px 16px;font-size:13px;">⬇️ تحميل نسخة احتياطية (JSON)</button>
+              <label class="btn-sm" style="padding:10px 16px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+                <span>⬆️ استرجاع نسخة من الهاتف</span>
+                <input type="file" accept=".json,application/json" id="importBackupInput" style="display:none;" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Copy Fallback Modal (replaces prompt) -->
+  <div class="modal-backdrop" id="copyModal" aria-hidden="true">
+    <div class="modal-box" style="max-width:460px;">
+      <div class="modal-header">
+        <div class="modal-title">تفاصيل الطلب للنسخ</div>
+        <button type="button" class="close-btn" id="closeCopyModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <textarea id="copyFallbackText" rows="8" class="form-control" readonly></textarea>
+        <button type="button" class="submit-order-btn" id="copyFallbackBtn">نسخ الآن</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toastBox"></div>
+
+  <script>
+    const STORAGE_KEY = 'store_chope_officiel_v1';
+
+    const DESIGNS_10 = [
+      { id: 'd1', nameAr: 'كلاسيكي ذهبي', nameFr: 'Classique Or', bg: '#f8fafc', surface: '#ffffff', surface2: '#f1f5f9', text: '#0f172a', muted: '#64748b', border: '#e2e8f0', primary: '#0f172a', accent: '#d97706' },
+      { id: 'd2', nameAr: 'ليلي فاخر', nameFr: 'Luxe Nuit', bg: '#0b1120', surface: '#111827', surface2: '#1e293b', text: '#f8fafc', muted: '#94a3b8', border: '#273549', primary: '#f59e0b', accent: '#fbbf24' },
+      { id: 'd3', nameAr: 'وردي أزياء', nameFr: 'Rose Mode', bg: '#fffafb', surface: '#ffffff', surface2: '#fdf2f8', text: '#27121c', muted: '#7c5266', border: '#f5d0e3', primary: '#be185d', accent: '#db2777' },
+      { id: 'd4', nameAr: 'أخضر زمردي', nameFr: 'Émeraude', bg: '#f5fbf8', surface: '#ffffff', surface2: '#ecfdf5', text: '#0d281e', muted: '#4b7363', border: '#c6ebd9', primary: '#047857', accent: '#10b981' },
+      { id: 'd5', nameAr: 'أزرق ملكي', nameFr: 'Bleu Royal', bg: '#f6f9ff', surface: '#ffffff', surface2: '#eff6ff', text: '#0f1c3f', muted: '#526594', border: '#dbeafe', primary: '#1d4ed8', accent: '#2563eb' },
+      { id: 'd6', nameAr: 'رمادي عصري', nameFr: 'Moderne Gris', bg: '#f4f4f5', surface: '#ffffff', surface2: '#e4e4e7', text: '#18181b', muted: '#52525b', border: '#d4d4d8', primary: '#18181b', accent: '#52525b' },
+      { id: 'd7', nameAr: 'برونزي دافئ', nameFr: 'Bronze Chaud', bg: '#fdf8f3', surface: '#ffffff', surface2: '#fef3c7', text: '#2c1810', muted: '#7c5846', border: '#f3decb', primary: '#7c2d12', accent: '#c2410c' },
+      { id: 'd8', nameAr: 'بنفسجي أنيق', nameFr: 'Violet Élégant', bg: '#faf7ff', surface: '#ffffff', surface2: '#f3e8ff', text: '#1e1035', muted: '#655187', border: '#e9d5ff', primary: '#6d28d9', accent: '#7c3aed' },
+      { id: 'd9', nameAr: 'قرمزي جريء', nameFr: 'Cramoisi', bg: '#fff8f8', surface: '#ffffff', surface2: '#fef2f2', text: '#2b0d10', muted: '#7d4b50', border: '#fecaca', primary: '#b91c1c', accent: '#ef4444' },
+      { id: 'd10', nameAr: 'سماوي ناعم', nameFr: 'Ciel Doux', bg: '#f5fbff', surface: '#ffffff', surface2: '#e0f2fe', text: '#0c2438', muted: '#4a6f8c', border: '#bae6fd', primary: '#0369a1', accent: '#0284c7' }
+    ];
+
+    const I18N = {
+      ar: {
+        topSub: 'ملابس • أحذية • حقائب — الدفع عند الاستلام (DH)',
+        dashboardBtn: 'لوحة التحكم',
+        catAll: 'الكل',
+        catClothes: 'الملابس',
+        catShoes: 'الأحذية',
+        catBags: 'الحقائب',
+        dashTitle: 'لوحة تحكم STORE CHOPE OFFICIEL',
+        dashSub: 'إدارة المنتجات، الطلبيات، الزوار، الربط، و10 تصاميم جاهزة',
+        tabOverview: 'نظرة عامة والزوار',
+        tabOrders: 'الطلبيات',
+        tabAddProduct: 'إضافة منتج',
+        tabProducts: 'جداول المنتجات',
+        tabDesigns: '10 تصاميم',
+        tabSettings: 'المتجر والربط (API / WhatsApp)',
+        visitorsTitle: 'سجل الزوار والنشاط (شكون اللي دخل)',
+        colTime: 'الوقت',
+        colVisitor: 'الزائر / الجهاز',
+        colLang: 'اللغة',
+        colActivity: 'النشاط',
+        ordersSentTitle: 'الطلبات التي مشات (المؤكدة / المرسلة)',
+        ordersPendingTitle: 'الطلبات التي مازال ما تأكداتش (قيد الانتظار / غير مؤكدة)',
+        colCustomer: 'الزبون والهاتف',
+        colCity: 'المدينة والعنوان',
+        colItemSpecs: 'المنتج / اللون / القياس / الكمية',
+        colChannel: 'المسار',
+        colAccept: 'القبول',
+        colDelivery: 'الوصول',
+        colActions: 'تحكم',
+        addProdTitle: 'إضافة منتج جديد (مع الألوان، القياسات، والكمية)',
+        lblProdNameAr: 'اسم المنتج (عربي) *',
+        lblProdNameFr: 'Nom du produit (Français) *',
+        lblCategory: 'القسم *',
+        lblSourceType: 'نوع المنتج *',
+        lblPriceDh: 'الثمن بالدرهم (DH) *',
+        lblStockQty: 'الكمية المتوفرة في المخزون *',
+        lblColors: 'الألوان المتوفرة (افصل بفاصلة) *',
+        lblSizes: 'القياسات المتوفرة (افصل بفاصلة) *',
+        lblOrderRoute: 'وجهة الطلب عند التأكيد *',
+        lblUploadImg: 'رفع صور من الهاتف (أو وضع رابط)',
+        lblImgUrl: 'روابط الصور (مفصولة بفاصلة ،)',
+        lblDescAr: 'الوصف (عربي) *',
+        lblDescFr: 'Description (Français) *',
+        btnSaveProduct: 'حفظ وإضافة المنتج للمتجر',
+        ownProductsTableTitle: 'جدول المنتجات الخاصة بالمتجر (المنتجات الخاصة)',
+        affProductsTableTitle: 'جدول المنتجات القادمة من منصات الأفيلييت (Affiliate / API)',
+        colProd: 'المنتج',
+        colCat: 'القسم',
+        colPrice: 'الثمن',
+        colStock: 'الكمية',
+        colColorsSizes: 'الألوان / القياسات',
+        colRoute: 'الوجهة',
+        designsTitle: '10 تصاميم جاهزة للمتجر — بدّل بنقرة واحدة',
+        storeInfoTitle: 'إعدادات المتجر وصورة المتجر',
+        apiTitle: 'إعدادات الربط التلقائي مع منصات الأفيلييت (API)',
+        btnSaveSettings: 'حفظ جميع الإعدادات',
+        formTitle: 'استمارة الطلب (جميع الخانات إجبارية)',
+        lblFullName: 'الاسم الكامل',
+        lblPhone: 'رقم الهاتف',
+        lblCity: 'المدينة',
+        lblAddress: 'العنوان الكامل',
+        lblColor: 'اللون',
+        lblSize: 'القياس',
+        lblQty: 'الكمية المطلوبة',
+        btnConfirmOrder: 'أطلب الآن • تأكيد الطلب',
+        errFillAll: 'يرجى تعبئة جميع الخانات المطلوبة بدون استثناء، بما في ذلك اللون، القياس، والكمية.',
+        confirmedTitle: 'تم تأكيد الطلب بنجاح',
+        codText: 'الدفع عند الاستلام (COD)',
+        dh: 'درهم'
+      },
+      fr: {
+        topSub: 'Vêtements • Chaussures • Sacs — Paiement à la livraison (DH)',
+        dashboardBtn: 'Tableau de bord',
+        catAll: 'Tout',
+        catClothes: 'Vêtements',
+        catShoes: 'Chaussures',
+        catBags: 'Sacs',
+        dashTitle: 'Tableau de bord STORE CHOPE OFFICIEL',
+        dashSub: 'Gestion produits, commandes, visiteurs, API et 10 designs instantanés',
+        tabOverview: 'Aperçu & Visiteurs',
+        tabOrders: 'Commandes',
+        tabAddProduct: 'Ajouter un produit',
+        tabProducts: 'Tables Produits',
+        tabDesigns: '10 Designs',
+        tabSettings: 'Boutique & API / WhatsApp',
+        visitorsTitle: 'Journal des visiteurs & activité',
+        colTime: 'Heure',
+        colVisitor: 'Visiteur / Appareil',
+        colLang: 'Langue',
+        colActivity: 'Activité',
+        ordersSentTitle: 'Commandes envoyées / confirmées',
+        ordersPendingTitle: 'Commandes non confirmées / en attente',
+        colCustomer: 'Client & Tél',
+        colCity: 'Ville & Adresse',
+        colItemSpecs: 'Produit / Couleur / Taille / Qté',
+        colChannel: 'Canal',
+        colAccept: 'Acceptation',
+        colDelivery: 'Livraison',
+        colActions: 'Actions',
+        addProdTitle: 'Ajouter un produit (Couleurs, Tailles, Quantité)',
+        lblProdNameAr: 'Nom du produit (Arabe) *',
+        lblProdNameFr: 'Nom du produit (Français) *',
+        lblCategory: 'Catégorie *',
+        lblSourceType: 'Type de produit *',
+        lblPriceDh: 'Prix en DH *',
+        lblStockQty: 'Quantité disponible *',
+        lblColors: 'Couleurs disponibles (séparées par virgule) *',
+        lblSizes: 'Tailles disponibles (séparées par virgule) *',
+        lblOrderRoute: 'Destination de la commande *',
+        lblUploadImg: 'Importer des photos depuis le téléphone',
+        lblImgUrl: 'Liens images (séparés par virgule ,)',
+        lblDescAr: 'Description (Arabe) *',
+        lblDescFr: 'Description (Français) *',
+        btnSaveProduct: 'Enregistrer et ajouter le produit',
+        ownProductsTableTitle: 'Tableau des produits propres de la boutique',
+        affProductsTableTitle: 'Tableau des produits affiliés (Affiliate / API)',
+        colProd: 'Produit',
+        colCat: 'Catégorie',
+        colPrice: 'Prix',
+        colStock: 'Stock',
+        colColorsSizes: 'Couleurs / Tailles',
+        colRoute: 'Destination',
+        designsTitle: '10 designs prêts — Changez en un clic',
+        storeInfoTitle: 'Paramètres de la boutique & bannière',
+        apiTitle: 'Configuration automatique Affiliation (API)',
+        btnSaveSettings: 'Enregistrer tous les paramètres',
+        formTitle: 'Formulaire de commande (Tous les champs sont obligatoires)',
+        lblFullName: 'Nom complet',
+        lblPhone: 'Numéro de téléphone',
+        lblCity: 'Ville',
+        lblAddress: 'Adresse complète',
+        lblColor: 'Couleur',
+        lblSize: 'Taille',
+        lblQty: 'Quantité',
+        btnConfirmOrder: 'Commander maintenant • Confirmer',
+        errFillAll: 'Veuillez remplir tous les champs obligatoires, y compris la couleur, la taille et la quantité.',
+        confirmedTitle: 'Commande confirmée avec succès',
+        codText: 'Paiement à la livraison (COD)',
+        dh: 'DH'
+      }
+    };
+
+    const DEFAULT_STATE = {
+      lang: 'ar',
+      category: 'all',
+      designId: 'd1',
+      store: {
+        name: 'STORE CHOPE OFFICIEL',
+        whatsapp: '212636914289',
+        email: 'mohammedaks36@gmail.com',
+        bannerUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80'
+      },
+      adminPin: '1234',
+      api: {
+        enabled: false,
+        platform: '',
+        endpoint: '',
+        apiKey: ''
+      },
+      products: [
+        {
+          id: 'p1',
+          category: 'clothes',
+          sourceType: 'own',
+          route: 'whatsapp',
+          price: 260,
+          stock: 25,
+          nameAr: 'طقم ملابس عصرية مريح',
+          nameFr: 'Ensemble Mode Confort',
+          descAr: 'قماش ناعم ومريح للارتداء اليومي مع قصة أنيقة مناسبة لمختلف الفصول.',
+          descFr: 'Tissu doux et confortable au quotidien avec une coupe élégante.',
+          colors: ['أسود', 'بيج', 'أخضر'],
+          sizes: ['S', 'M', 'L', 'XL'],
+          images: [
+            'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80',
+            'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80'
+          ]
+        },
+        {
+          id: 'p2',
+          category: 'shoes',
+          sourceType: 'own',
+          route: 'whatsapp',
+          price: 220,
+          stock: 18,
+          nameAr: 'حذاء رياضي يومي خفيف',
+          nameFr: 'Basket Urbaine Légère',
+          descAr: 'نعل مريح ومضاد للانزلاق يمنح ثباتاً ممتازاً أثناء المشي طوال اليوم.',
+          descFr: 'Semelle confortable et légère idéale pour une marche quotidienne agréable.',
+          colors: ['أبيض', 'أسود', 'رمادي'],
+          sizes: ['39', '40', '41', '42', '43'],
+          images: [
+            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80',
+            'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=900&q=80'
+          ]
+        },
+        {
+          id: 'p3',
+          category: 'bags',
+          sourceType: 'affiliate',
+          route: 'affiliate_api',
+          price: 195,
+          stock: 30,
+          nameAr: 'حقيبة يد عملية بتصميم حديث',
+          nameFr: 'Sac à Main Moderne',
+          descAr: 'حقيبة عملية واسعة من الداخل بتفاصيل معدنية أنيقة مناسبة للعمل والخرج.',
+          descFr: 'Sac pratique et spacieux avec finitions soignées pour le quotidien.',
+          colors: ['بني', 'أسود', 'كريمي'],
+          sizes: ['Standard'],
+          images: [
+            'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=80',
+            'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=80'
+          ]
+        },
+        {
+          id: 'p4',
+          category: 'clothes',
+          sourceType: 'affiliate',
+          route: 'affiliate_api',
+          price: 290,
+          stock: 15,
+          nameAr: 'معطف خفيف أنيق',
+          nameFr: 'Veste Élégante Légère',
+          descAr: 'تصميم راقٍ يجمع بين البساطة والعملية مع إمكانية اختيار اللون والقياس بدقة.',
+          descFr: 'Coupe soignée alliant élégance et praticité avec choix de couleur et taille.',
+          colors: ['بني', 'أسود', 'أزرق'],
+          sizes: ['S', 'M', 'L'],
+          images: [
+            'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=900&q=80'
+          ]
+        }
+      ],
+      orders: [
+        {
+          id: 'CMD-1001',
+          sent: true,
+          acceptance: 'accepted',
+          delivery: 'delivered',
+          route: 'whatsapp',
+          customerName: 'ياسين أيت لحسن',
+          phone: '0661122334',
+          city: 'إنزكان',
+          address: 'حي الرمل، زنقة 14',
+          productName: 'طقم ملابس عصرية مريح',
+          color: 'أسود',
+          size: 'L',
+          qty: 1,
+          total: 260,
+          createdAt: '2026-11-18 14:20'
+        },
+        {
+          id: 'CMD-1002',
+          sent: true,
+          acceptance: 'accepted',
+          delivery: 'pending',
+          route: 'affiliate_api',
+          customerName: 'سلمى بنعلي',
+          phone: '0670998877',
+          city: 'أكادير',
+          address: 'الحي المحمدي، عمارة 8',
+          productName: 'حقيبة يد عملية بتصميم حديث',
+          color: 'بني',
+          size: 'Standard',
+          qty: 2,
+          total: 390,
+          createdAt: '2026-11-19 09:45'
+        },
+        {
+          id: 'CMD-1003',
+          sent: false,
+          acceptance: 'pending',
+          delivery: 'pending',
+          route: 'whatsapp',
+          customerName: 'مهدي العلوي',
+          phone: '0655443322',
+          city: 'تارودانت',
+          address: 'شارع الحسن الثاني',
+          productName: 'حذاء رياضي يومي خفيف',
+          color: 'أبيض',
+          size: '42',
+          qty: 1,
+          total: 220,
+          createdAt: '2026-11-19 11:10'
+        }
+      ],
+      visitors: [
+        {
+          time: 'اليوم 13:40',
+          device: 'هاتف ذكي (Mobile)',
+          lang: 'AR',
+          activity: 'تصفح واجهة المتجر STORE CHOPE OFFICIEL'
+        },
+        {
+          time: 'اليوم 14:02',
+          device: 'هاتف ذكي (Mobile)',
+          lang: 'AR',
+          activity: 'فتح تفاصيل منتج: طقم ملابس عصرية مريح'
+        }
+      ]
+    };
+
+    function cloneDefault() {
+      return JSON.parse(JSON.stringify(DEFAULT_STATE));
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return cloneDefault();
+        const parsed = JSON.parse(raw);
+        const def = cloneDefault();
+        return {
+          ...def,
+          ...parsed,
+          store: { ...def.store, ...(parsed.store || {}) },
+          api: { ...def.api, ...(parsed.api || {}) },
+          products: Array.isArray(parsed.products) && parsed.products.length ? parsed.products : def.products,
+          orders: Array.isArray(parsed.orders) ? parsed.orders : def.orders,
+          visitors: Array.isArray(parsed.visitors) ? parsed.visitors : def.visitors
+        };
+      } catch (e) {
+        return cloneDefault();
+      }
+    }
+
+    let state = loadState();
+    let activeProductId = null;
+    let activeGalleryIdx = 0;
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (e) {
+        showToast('تعذر حفظ البيانات محلياً');
+      }
+    }
+
+    function showToast(msg) {
+      const box = document.getElementById('toastBox');
+      box.textContent = msg;
+      box.classList.add('show');
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => box.classList.remove('show'), 2600);
+    }
+
+    function logVisitorActivity(activity) {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+      state.visitors.unshift({
+        time: timeStr,
+        device: isMobile ? 'هاتف ذكي (Mobile)' : 'متصفح ويب (Browser)',
+        lang: state.lang.toUpperCase(),
+        activity
+      });
+      if (state.visitors.length > 40) state.visitors.length = 40;
+      saveState();
+    }
+
+    function applyDesign(designId) {
+      const d = DESIGNS_10.find(x => x.id === designId) || DESIGNS_10[0];
+      state.designId = d.id;
+      const root = document.documentElement;
+      root.style.setProperty('--bg', d.bg);
+      root.style.setProperty('--surface', d.surface);
+      root.style.setProperty('--surface-2', d.surface2);
+      root.style.setProperty('--text', d.text);
+      root.style.setProperty('--muted', d.muted);
+      root.style.setProperty('--border', d.border);
+      root.style.setProperty('--primary', d.primary);
+      root.style.setProperty('--primary-contrast', '#ffffff');
+      root.style.setProperty('--accent', d.accent);
+      saveState();
+      renderDesignsGrid();
+    }
+
+    function applyLanguage(lang) {
+      state.lang = lang === 'fr' ? 'fr' : 'ar';
+      document.body.setAttribute('data-lang', state.lang);
+      document.documentElement.lang = state.lang;
+      document.documentElement.dir = state.lang === 'ar' ? 'rtl' : 'ltr';
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.setLang === state.lang);
+      });
+
+      const dict = I18N[state.lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.textContent = dict[key];
+      });
+
+      if (state.lang === 'fr') {
+        document.getElementById('storeHeroDesc').textContent =
+          'Une sélection soignée de vêtements, chaussures et sacs modernes avec paiement à la livraison en DH.';
+      } else {
+        document.getElementById('storeHeroDesc').textContent =
+          'تشكيلة مختارة من الملابس، الأحذية، والحقائب العصرية بجودة عالية والدفع عند الاستلام بالدرهم المغربي.';
+      }
+
+      saveState();
+      renderProductsGrid();
+      if (activeProductId) renderProductModal(activeProductId);
+      renderDashboardAll();
+    }
+
+    function renderStoreHeader() {
+      document.querySelector('.brand-title').textContent = state.store.name || 'STORE CHOPE OFFICIEL';
+      document.getElementById('storeHeroTitle').textContent = state.store.name || 'STORE CHOPE OFFICIEL';
+      document.getElementById('storeBannerImg').src = state.store.bannerUrl || DEFAULT_STATE.store.bannerUrl;
+    }
+
+    function renderCategories() {
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.cat === state.category);
+      });
+    }
+
+    function renderProductsGrid() {
+      const grid = document.getElementById('productsGrid');
+      const filtered = state.category === 'all'
+        ? state.products
+        : state.products.filter(p => p.category === state.category);
+
+      const dhLabel = I18N[state.lang].dh;
+      const fallbackImg = 'https://placehold.co/600x450/f1f5f9/0f172a?text=STORE+CHOPE';
+      grid.innerHTML = filtered.map(p => {
+        const desc = state.lang === 'fr' ? (p.descFr || p.descAr) : (p.descAr || p.descFr);
+        const img = (p.images && p.images[0]) || DEFAULT_STATE.products[0].images[0];
+        return `
+          <article class="product-card" data-open-product="${p.id}">
+            <div class="product-thumb-wrap">
+              <img src="${img}" alt="" loading="lazy" onerror="this.src='${fallbackImg}'" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-price">${p.price} ${dhLabel}</div>
+              <p class="product-desc">${escapeHtml(desc)}</p>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function colorToCss(colorName) {
+      const c = String(colorName || '').trim().toLowerCase();
+      const map = {
+        'أسود': '#111827', 'noir': '#111827', 'black': '#111827',
+        'أبيض': '#ffffff', 'blanc': '#ffffff', 'white': '#ffffff',
+        'أحمر': '#dc2626', 'rouge': '#dc2626', 'red': '#dc2626',
+        'أزرق': '#2563eb', 'bleu': '#2563eb', 'blue': '#2563eb',
+        'أخضر': '#059669', 'vert': '#059669', 'green': '#059669',
+        'بيج': '#e7d5b7', 'beige': '#e7d5b7',
+        'بني': '#78350f', 'marron': '#78350f', 'brown': '#78350f',
+        'رمادي': '#6b7280', 'gris': '#6b7280', 'gray': '#6b7280',
+        'وردي': '#ec4899', 'rose': '#ec4899',
+        'كريمي': '#fef3c7', 'crème': '#fef3c7'
+      };
+      return map[c] || '#94a3b8';
+    }
+
+    function openProductModal(productId) {
+      activeProductId = productId;
+      activeGalleryIdx = 0;
+      const prod = state.products.find(p => p.id === productId);
+      if (prod) {
+        logVisitorActivity(`فتح صفحة المنتج: ${prod.nameAr || prod.nameFr}`);
+        renderVisitorsTable();
+      }
+      renderProductModal(productId);
+      document.getElementById('productModal').classList.add('open');
+    }
+
+    function renderProductModal(productId) {
+      const p = state.products.find(x => x.id === productId);
+      if (!p) return;
+
+      const t = I18N[state.lang];
+      const title = state.lang === 'fr' ? (p.nameFr || p.nameAr) : (p.nameAr || p.nameFr);
+      const desc = state.lang === 'fr' ? (p.descFr || p.descAr) : (p.descAr || p.descFr);
+      const imgs = (p.images && p.images.length) ? p.images : [DEFAULT_STATE.products[0].images[0]];
+      const mainImg = imgs[activeGalleryIdx] || imgs[0];
+      const isClothes = p.category === 'clothes';
+      const colors = (p.colors && p.colors.length) ? p.colors : ['أسود', 'أبيض'];
+      const sizes = (p.sizes && p.sizes.length) ? p.sizes : (isClothes ? ['S', 'M', 'L', 'XL'] : ['Standard']);
+      const maxStock = Math.max(1, Number(p.stock) || 20);
+      const fallbackImg = 'https://placehold.co/800x500/f1f5f9/0f172a?text=STORE+CHOPE';
+
+      document.getElementById('modalProductTitle').textContent = title;
+
+      document.getElementById('productModalBody').innerHTML = `
+        <div class="detail-gallery-main">
+          <img id="modalMainImg" src="${mainImg}" alt="${escapeHtml(title)}" onerror="this.src='${fallbackImg}'" />
+        </div>
+        <div class="detail-thumbs">
+          ${imgs.map((src, idx) => `
+            <button type="button" class="detail-thumb ${idx === activeGalleryIdx ? 'active' : ''}" data-thumb-idx="${idx}">
+              <img src="${src}" alt="" onerror="this.src='${fallbackImg}'" />
+            </button>
+          `).join('')}
+        </div>
+
+        <div class="detail-info-box">
+          <div class="detail-price-row">
+            <div class="detail-price">${p.price} ${t.dh}</div>
+            <span class="cod-badge">${t.codText}</span>
+          </div>
+          <div class="detail-desc">${escapeHtml(desc)}</div>
+        </div>
+
+        <form id="strictOrderForm" class="order-form-card" novalidate>
+          <div class="form-section-title">
+            <span>${t.formTitle}</span>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">${t.lblFullName} <span class="req-star">*</span></label>
+              <input type="text" class="form-control" id="ordName" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">${t.lblPhone} <span class="req-star">*</span></label>
+              <input type="tel" class="form-control" id="ordPhone" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">${t.lblCity} <span class="req-star">*</span></label>
+              <input type="text" class="form-control" id="ordCity" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">${t.lblAddress} <span class="req-star">*</span></label>
+              <input type="text" class="form-control" id="ordAddress" required />
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label">${t.lblColor} <span class="req-star">*</span></label>
+              <div class="chips-row" id="ordColorChips">
+                ${colors.map(c => `
+                  <button type="button" class="choice-chip" data-color="${escapeHtml(c)}">
+                    <span class="color-dot" style="background:${colorToCss(c)}"></span>
+                    <span>${escapeHtml(c)}</span>
+                  </button>
+                `).join('')}
+              </div>
+              <input type="hidden" id="ordColorVal" value="" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">${t.lblSize} <span class="req-star">*</span></label>
+              <div class="chips-row" id="ordSizeChips">
+                ${sizes.map(s => `
+                  <button type="button" class="choice-chip" data-size="${escapeHtml(s)}">${escapeHtml(s)}</button>
+                `).join('')}
+              </div>
+              <input type="hidden" id="ordSizeVal" value="" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">${t.lblQty} <span class="req-star">*</span></label>
+              <input type="number" min="1" max="${maxStock}" step="1" class="form-control" id="ordQty" value="" placeholder="1" required />
+            </div>
+          </div>
+
+          <div class="error-alert" id="orderErrorBox">${t.errFillAll}</div>
+
+          <button type="submit" class="submit-order-btn">${t.btnConfirmOrder}</button>
+
+          <div class="success-box" id="orderSuccessBox">
+            <div class="success-title">✓ ${t.confirmedTitle}</div>
+            <div id="orderSuccessDetails"></div>
+          </div>
+        </form>
+      `;
+
+      document.querySelectorAll('.detail-thumb').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeGalleryIdx = Number(btn.dataset.thumbIdx);
+          renderProductModal(productId);
+        });
+      });
+
+      document.querySelectorAll('#ordColorChips .choice-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          document.querySelectorAll('#ordColorChips .choice-chip').forEach(c => c.classList.remove('selected'));
+          chip.classList.add('selected');
+          document.getElementById('ordColorVal').value = chip.dataset.color;
+          document.getElementById('ordColorChips').classList.remove('invalid');
+        });
+      });
+
+      document.querySelectorAll('#ordSizeChips .choice-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          document.querySelectorAll('#ordSizeChips .choice-chip').forEach(s => s.classList.remove('selected'));
+          chip.classList.add('selected');
+          document.getElementById('ordSizeVal').value = chip.dataset.size;
+          document.getElementById('ordSizeChips').classList.remove('invalid');
+        });
+      });
+
+      document.getElementById('strictOrderForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const errBox = document.getElementById('orderErrorBox');
+        const okBox = document.getElementById('orderSuccessBox');
+        okBox.classList.remove('show');
+
+        const nameEl = document.getElementById('ordName');
+        const phoneEl = document.getElementById('ordPhone');
+        const cityEl = document.getElementById('ordCity');
+        const addrEl = document.getElementById('ordAddress');
+        const colorEl = document.getElementById('ordColorVal');
+        const sizeEl = document.getElementById('ordSizeVal');
+        const qtyEl = document.getElementById('ordQty');
+
+        [nameEl, phoneEl, cityEl, addrEl, qtyEl].forEach(el => el.classList.remove('invalid'));
+
+        const fullName = nameEl.value.trim();
+        const phone = phoneEl.value.trim();
+        const city = cityEl.value.trim();
+        const address = addrEl.value.trim();
+        const color = colorEl.value.trim();
+        const size = sizeEl.value.trim();
+        const qty = parseInt(qtyEl.value, 10);
+
+        let missing = false;
+        if (!fullName) { nameEl.classList.add('invalid'); missing = true; }
+        if (!phone) { phoneEl.classList.add('invalid'); missing = true; }
+        if (!city) { cityEl.classList.add('invalid'); missing = true; }
+        if (!address) { addrEl.classList.add('invalid'); missing = true; }
+        if (!color) { missing = true; }
+        if (!size) { missing = true; }
+        if (!qty || isNaN(qty) || qty < 1) { qtyEl.classList.add('invalid'); missing = true; }
+
+        if (missing) {
+          errBox.classList.add('show');
+          return;
+        }
+        errBox.classList.remove('show');
+
+        const total = p.price * qty;
+        const orderId = 'CMD-' + String(Math.floor(1000 + Math.random() * 9000));
+        const nowStr = new Date().toISOString().slice(0, 16).replace('T', ' ');
+        const route = p.route || 'whatsapp';
+
+        const newOrder = {
+          id: orderId,
+          sent: true,
+          acceptance: 'pending',
+          delivery: 'pending',
+          route,
+          customerName: fullName,
+          phone,
+          city,
+          address,
+          productName: title,
+          color,
+          size,
+          qty,
+          total,
+          createdAt: nowStr
+        };
+
+        state.orders.unshift(newOrder);
+        logVisitorActivity(`تأكيد طلب (${orderId}): ${title} — ${color} / ${size} ×${qty}`);
+        saveState();
+        renderDashboardAll();
+
+        let dispatchNote = '';
+        if (route === 'affiliate_api' && state.api.enabled && state.api.endpoint) {
+          fetch(state.api.endpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              ...(state.api.apiKey ? { 'Authorization': `Bearer ${state.api.apiKey}` } : {})
+            },
+            body: JSON.stringify(newOrder)
+          }).catch(() => {});
+          dispatchNote = state.lang === 'fr'
+            ? 'Envoyé automatiquement vers la plateforme affiliée (API).'
+            : 'تم الإرسال تلقائياً إلى منصة الأفيلييت (API).';
+        } else {
+          const cleanWa = (state.store.whatsapp || '212636914289').replace(/\D/g, '');
+          const waMsg = encodeURIComponent(
+            `طلب جديد #${orderId} - ${state.store.name}\n` +
+            `المنتج: ${title}\n` +
+            `اللون: ${color} | القياس: ${size} | الكمية: ${qty}\n` +
+            `الثمن الإجمالي: ${total} DH\n` +
+            `الزبون: ${fullName}\n` +
+            `الهاتف: ${phone}\n` +
+            `المدينة: ${city}\n` +
+            `العنوان: ${address}`
+          );
+          dispatchNote = `<a href="https://wa.me/${cleanWa}?text=${waMsg}" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;padding:8px 14px;border-radius:10px;background:#059669;color:#fff;font-weight:800;text-decoration:none;">WhatsApp (${state.store.whatsapp})</a>`;
+        }
+
+        document.getElementById('orderSuccessDetails').innerHTML = `
+          <div>#${orderId} — <strong>${escapeHtml(title)}</strong> (${escapeHtml(color)} / ${escapeHtml(size)} × ${qty}) — <strong>${total} ${t.dh}</strong></div>
+          <div style="margin-top:4px;font-size:13px;">${dispatchNote}</div>
+        `;
+        okBox.classList.add('show');
+        showToast(t.confirmedTitle);
+      });
+    }
+
+    function renderDashboardAll() {
+      renderKpis();
+      renderVisitorsTable();
+      renderOrdersTables();
+      renderProductsTables();
+      renderDesignsGrid();
+      fillSettingsInputs();
+    }
+
+    function renderKpis() {
+      const totalOrders = state.orders.length;
+      const sentCount = state.orders.filter(o => o.sent).length;
+      const pendingCount = state.orders.filter(o => !o.sent).length;
+      const acceptedCount = state.orders.filter(o => o.acceptance === 'accepted').length;
+      const deliveredCount = state.orders.filter(o => o.delivery === 'delivered').length;
+      const visitorsCount = state.visitors.length;
+
+      const items = [
+        { label: state.lang === 'fr' ? 'Visiteurs' : 'الزوار المسجلون', val: visitorsCount },
+        { label: state.lang === 'fr' ? 'Total Commandes' : 'مجموع الطلبيات', val: totalOrders },
+        { label: state.lang === 'fr' ? 'Envoyées' : 'طلبات مشات', val: sentCount },
+        { label: state.lang === 'fr' ? 'Non confirmées' : 'مازال ما تأكداتش', val: pendingCount },
+        { label: state.lang === 'fr' ? 'Acceptées' : 'تم قبولها', val: acceptedCount },
+        { label: state.lang === 'fr' ? 'Livrées' : 'وصلات', val: deliveredCount }
+      ];
+
+      document.getElementById('kpiGrid').innerHTML = items.map(i => `
+        <div class="kpi-card">
+          <div class="kpi-label">${i.label}</div>
+          <div class="kpi-val">${i.val}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderVisitorsTable() {
+      const tbody = document.getElementById('visitorsTableBody');
+      tbody.innerHTML = state.visitors.map(v => `
+        <tr>
+          <td>${escapeHtml(v.time)}</td>
+          <td>${escapeHtml(v.device)}</td>
+          <td><span class="badge badge-info">${escapeHtml(v.lang)}</span></td>
+          <td>${escapeHtml(v.activity)}</td>
+        </tr>
+      `).join('');
+    }
+
+    function renderOrdersTables() {
+      const sentOrders = state.orders.filter(o => o.sent);
+      const pendingOrders = state.orders.filter(o => !o.sent);
+
+      const renderAcceptBadge = (acc) => {
+        if (acc === 'accepted') return `<span class="badge badge-ok">${state.lang === 'fr' ? 'Acceptée' : 'مقبول'}</span>`;
+        if (acc === 'rejected') return `<span class="badge badge-bad">${state.lang === 'fr' ? 'Refusée' : 'مرفوض'}</span>`;
+        return `<span class="badge badge-warn">${state.lang === 'fr' ? 'En attente' : 'قيد الانتظار'}</span>`;
+      };
+
+      const renderDeliveryBadge = (del) => {
+        if (del === 'delivered') return `<span class="badge badge-ok">${state.lang === 'fr' ? 'Livré' : 'وصل'}</span>`;
+        return `<span class="badge badge-warn">${state.lang === 'fr' ? 'Pas encore' : 'ما وصلش'}</span>`;
+      };
+
+      document.getElementById('sentOrdersBody').innerHTML = sentOrders.map(o => `
+        <tr>
+          <td><strong>${escapeHtml(o.id)}</strong></td>
+          <td>${escapeHtml(o.customerName)}<br><span style="color:var(--muted);font-size:12px;">${escapeHtml(o.phone)}</span></td>
+          <td>${escapeHtml(o.city)}<br><span style="color:var(--muted);font-size:12px;">${escapeHtml(o.address)}</span></td>
+          <td><strong>${escapeHtml(o.productName)}</strong><br><span style="font-size:12px;">${escapeHtml(o.color)} | ${escapeHtml(o.size)} | ×${o.qty} (${o.total} DH)</span></td>
+          <td><span class="badge badge-info">${o.route === 'affiliate_api' ? 'Affiliate API' : 'WhatsApp'}</span></td>
+          <td>${renderAcceptBadge(o.acceptance)}</td>
+          <td>${renderDeliveryBadge(o.delivery)}</td>
+          <td>
+            <div style="display:flex;gap:4px;flex-wrap:wrap;">
+              <button type="button" class="btn-sm" data-ord-acc="${o.id}" data-val="accepted">✓ قبول</button>
+              <button type="button" class="btn-sm danger" data-ord-acc="${o.id}" data-val="rejected">✕ رفض</button>
+              <button type="button" class="btn-sm primary" data-ord-del="${o.id}">${o.delivery === 'delivered' ? 'ما وصلش' : 'وصل'}</button>
+              <button type="button" class="btn-sm" data-ord-copy="${o.id}">📋 نسخ</button>
+            </div>
+          </td>
+        </tr>
+      `).join('') || `<tr><td colspan="8" style="text-align:center;color:var(--muted);">—</td></tr>`;
+
+      document.getElementById('pendingOrdersBody').innerHTML = pendingOrders.map(o => `
+        <tr>
+          <td><strong>${escapeHtml(o.id)}</strong></td>
+          <td>${escapeHtml(o.customerName)}<br><span style="color:var(--muted);font-size:12px;">${escapeHtml(o.phone)}</span></td>
+          <td>${escapeHtml(o.city)}<br><span style="color:var(--muted);font-size:12px;">${escapeHtml(o.address)}</span></td>
+          <td><strong>${escapeHtml(o.productName)}</strong><br><span style="font-size:12px;">${escapeHtml(o.color)} | ${escapeHtml(o.size)} | ×${o.qty} (${o.total} DH)</span></td>
+          <td><span class="badge badge-warn">${o.route === 'affiliate_api' ? 'Affiliate API' : 'WhatsApp'}</span></td>
+          <td>
+            <button type="button" class="btn-sm primary" data-ord-confirm="${o.id}">تأكيد وإرسال</button>
+            <button type="button" class="btn-sm" data-ord-copy="${o.id}">📋 نسخ</button>
+            <button type="button" class="btn-sm danger" data-ord-delrow="${o.id}">حذف</button>
+          </td>
+        </tr>
+      `).join('') || `<tr><td colspan="6" style="text-align:center;color:var(--muted);">—</td></tr>`;
+    }
+
+    function renderProductsTables() {
+      const catNames = {
+        clothes: state.lang === 'fr' ? 'Vêtements' : 'الملابس',
+        shoes: state.lang === 'fr' ? 'Chaussures' : 'الأحذية',
+        bags: state.lang === 'fr' ? 'Sacs' : 'الحقائب'
+      };
+
+      const makeRow = (p) => {
+        const title = state.lang === 'fr' ? (p.nameFr || p.nameAr) : (p.nameAr || p.nameFr);
+        return `
+          <tr>
+            <td><strong>${escapeHtml(title)}</strong></td>
+            <td>${catNames[p.category] || p.category}</td>
+            <td>${p.price} DH</td>
+            <td>
+              <div style="display:inline-flex;align-items:center;gap:6px;">
+                <button type="button" class="btn-sm" data-stock-dec="${p.id}" style="padding:2px 8px;">-</button>
+                <strong style="min-width:22px;text-align:center;">${p.stock}</strong>
+                <button type="button" class="btn-sm" data-stock-inc="${p.id}" style="padding:2px 8px;">+</button>
+              </div>
+            </td>
+            <td>${escapeHtml((p.colors || []).join(', '))} <br><span style="color:var(--muted);font-size:12px;">${escapeHtml((p.sizes || []).join(', '))}</span></td>
+            <td><span class="badge badge-info">${p.route === 'affiliate_api' ? 'Affiliate API' : 'WhatsApp'}</span></td>
+            <td>
+              <button type="button" class="btn-sm danger" data-del-prod="${p.id}">حذف</button>
+            </td>
+          </tr>
+        `;
+      };
+
+      const ownRows = state.products.filter(p => p.sourceType !== 'affiliate').map(makeRow).join('');
+      const affRows = state.products.filter(p => p.sourceType === 'affiliate').map(makeRow).join('');
+
+      document.getElementById('ownProductsBody').innerHTML = ownRows || `<tr><td colspan="7" style="text-align:center;color:var(--muted);">—</td></tr>`;
+      document.getElementById('affiliateProductsBody').innerHTML = affRows || `<tr><td colspan="7" style="text-align:center;color:var(--muted);">—</td></tr>`;
+    }
+
+    function renderDesignsGrid() {
+      const grid = document.getElementById('designsGrid');
+      grid.innerHTML = DESIGNS_10.map((d, idx) => {
+        const label = state.lang === 'fr' ? d.nameFr : d.nameAr;
+        return `
+          <button type="button" class="design-card ${state.designId === d.id ? 'active' : ''}" data-apply-design="${d.id}">
+            <div class="design-swatches">
+              <div style="background:${d.bg}"></div>
+              <div style="background:${d.primary}"></div>
+              <div style="background:${d.accent}"></div>
+            </div>
+            <div class="design-name">${idx + 1}. ${escapeHtml(label)}</div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function fillSettingsInputs() {
+      document.getElementById('cfgStoreName').value = state.store.name || 'STORE CHOPE OFFICIEL';
+      document.getElementById('cfgWhatsapp').value = state.store.whatsapp || '212636914289';
+      document.getElementById('cfgEmail').value = state.store.email || 'mohammedaks36@gmail.com';
+      document.getElementById('cfgBannerUrl').value = state.store.bannerUrl || DEFAULT_STATE.store.bannerUrl;
+      document.getElementById('cfgAdminPin').value = state.adminPin || '1234';
+      document.getElementById('cfgApiEnabled').value = String(Boolean(state.api.enabled));
+      document.getElementById('cfgAffPlatform').value = state.api.platform || '';
+      document.getElementById('cfgApiUrl').value = state.api.endpoint || '';
+      document.getElementById('cfgApiKey').value = state.api.apiKey || '';
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyLanguage(btn.dataset.setLang));
+    });
+
+    document.querySelectorAll('.cat-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.category = btn.dataset.cat;
+        saveState();
+        renderCategories();
+        renderProductsGrid();
+      });
+    });
+
+    document.getElementById('productsGrid').addEventListener('click', (e) => {
+      const card = e.target.closest('[data-open-product]');
+      if (card) openProductModal(card.dataset.openProduct);
+    });
+
+    document.getElementById('closeProductModal').addEventListener('click', () => {
+      document.getElementById('productModal').classList.remove('open');
+      activeProductId = null;
+    });
+
+    document.getElementById('productModal').addEventListener('click', (e) => {
+      if (e.target.id === 'productModal') {
+        document.getElementById('productModal').classList.remove('open');
+        activeProductId = null;
+      }
+    });
+
+    let dashUnlocked = false;
+
+    function openDashboardDirectly() {
+      renderDashboardAll();
+      document.getElementById('dashboardModal').classList.add('open');
+    }
+
+    document.getElementById('openDashBtn').addEventListener('click', () => {
+      if (dashUnlocked) {
+        openDashboardDirectly();
+        return;
+      }
+      document.getElementById('pinInputField').value = '';
+      document.getElementById('pinErrorMsg').classList.remove('show');
+      document.getElementById('pinModal').classList.add('open');
+      setTimeout(() => document.getElementById('pinInputField').focus(), 80);
+    });
+
+    document.getElementById('closePinModal').addEventListener('click', () => {
+      document.getElementById('pinModal').classList.remove('open');
+    });
+
+    document.getElementById('pinModal').addEventListener('click', (e) => {
+      if (e.target.id === 'pinModal') {
+        document.getElementById('pinModal').classList.remove('open');
+      }
+    });
+
+    document.getElementById('pinVerifyForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const entered = document.getElementById('pinInputField').value.trim();
+      const expected = String(state.adminPin || '1234').trim();
+      if (entered === expected) {
+        dashUnlocked = true;
+        document.getElementById('pinModal').classList.remove('open');
+        openDashboardDirectly();
+      } else {
+        document.getElementById('pinErrorMsg').classList.add('show');
+      }
+    });
+
+    document.getElementById('closeDashboardModal').addEventListener('click', () => {
+      document.getElementById('dashboardModal').classList.remove('open');
+    });
+
+    document.getElementById('dashboardModal').addEventListener('click', (e) => {
+      if (e.target.id === 'dashboardModal') {
+        document.getElementById('dashboardModal').classList.remove('open');
+      }
+    });
+
+    document.getElementById('dashTabs').addEventListener('click', (e) => {
+      const tabBtn = e.target.closest('.dash-tab');
+      if (!tabBtn) return;
+      const targetTab = tabBtn.dataset.tab;
+      document.querySelectorAll('.dash-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === targetTab));
+      document.querySelectorAll('.dash-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + targetTab));
+    });
+
+    document.getElementById('designsGrid').addEventListener('click', (e) => {
+      const card = e.target.closest('[data-apply-design]');
+      if (!card) return;
+      applyDesign(card.dataset.applyDesign);
+      showToast(state.lang === 'fr' ? 'Design appliqué' : 'تم تطبيق التصميم');
+    });
+
+    document.getElementById('npFileInput').addEventListener('change', (e) => {
+      const files = Array.from(e.target.files || []);
+      if (!files.length) return;
+      const readers = files.map(file => new Promise(resolve => {
+        const fr = new FileReader();
+        fr.onload = () => resolve(fr.result);
+        fr.readAsDataURL(file);
+      }));
+      Promise.all(readers).then(dataUrls => {
+        const urlInput = document.getElementById('npImgUrls');
+        const existing = urlInput.value.trim();
+        urlInput.value = existing ? (existing + ', ' + dataUrls.join(', ')) : dataUrls.join(', ');
+      });
+    });
+
+    document.getElementById('addProductForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nameAr = document.getElementById('npNameAr').value.trim();
+      const nameFr = document.getElementById('npNameFr').value.trim();
+      const category = document.getElementById('npCategory').value;
+      const sourceType = document.getElementById('npSourceType').value;
+      const price = Math.max(1, Number(document.getElementById('npPrice').value) || 100);
+      const stock = Math.max(1, Number(document.getElementById('npQty').value) || 10);
+      const route = document.getElementById('npRoute').value;
+      const colors = document.getElementById('npColors').value.split(',').map(s => s.trim()).filter(Boolean);
+      const sizes = document.getElementById('npSizes').value.split(',').map(s => s.trim()).filter(Boolean);
+      const images = document.getElementById('npImgUrls').value.split(',').map(s => s.trim()).filter(Boolean);
+      const descAr = document.getElementById('npDescAr').value.trim();
+      const descFr = document.getElementById('npDescFr').value.trim();
+
+      const newProd = {
+        id: 'p_' + Date.now(),
+        category,
+        sourceType,
+        route,
+        price,
+        stock,
+        nameAr,
+        nameFr,
+        descAr,
+        descFr,
+        colors: colors.length ? colors : ['أسود'],
+        sizes: sizes.length ? sizes : ['Standard'],
+        images: images.length ? images : [DEFAULT_STATE.products[0].images[0]]
+      };
+
+      state.products.unshift(newProd);
+      saveState();
+      renderProductsGrid();
+      renderProductsTables();
+      e.target.reset();
+      document.getElementById('npColors').value = 'أسود, أبيض, بيج';
+      document.getElementById('npSizes').value = 'S, M, L, XL';
+      document.getElementById('npQty').value = '20';
+      showToast(state.lang === 'fr' ? 'Produit ajouté' : 'تمت إضافة المنتج');
+    });
+
+    document.getElementById('panel-orders').addEventListener('click', (e) => {
+      const accBtn = e.target.closest('[data-ord-acc]');
+      if (accBtn) {
+        const ord = state.orders.find(o => o.id === accBtn.dataset.ordAcc);
+        if (ord) {
+          ord.acceptance = accBtn.dataset.val;
+          saveState();
+          renderDashboardAll();
+        }
+        return;
+      }
+
+      const delBtn = e.target.closest('[data-ord-del]');
+      if (delBtn) {
+        const ord = state.orders.find(o => o.id === delBtn.dataset.ordDel);
+        if (ord) {
+          ord.delivery = ord.delivery === 'delivered' ? 'pending' : 'delivered';
+          saveState();
+          renderDashboardAll();
+        }
+        return;
+      }
+
+      const confBtn = e.target.closest('[data-ord-confirm]');
+      if (confBtn) {
+        const ord = state.orders.find(o => o.id === confBtn.dataset.ordConfirm);
+        if (ord) {
+          ord.sent = true;
+          saveState();
+          renderDashboardAll();
+        }
+        return;
+      }
+
+      const remBtn = e.target.closest('[data-ord-delrow]');
+      if (remBtn) {
+        state.orders = state.orders.filter(o => o.id !== remBtn.dataset.ordDelrow);
+        saveState();
+        renderDashboardAll();
+        return;
+      }
+
+      const copyBtn = e.target.closest('[data-ord-copy]');
+      if (copyBtn) {
+        const ord = state.orders.find(o => o.id === copyBtn.dataset.ordCopy);
+        if (!ord) return;
+        const text = [
+          `طلب #${ord.id} - ${state.store.name}`,
+          `الزبون: ${ord.customerName}`,
+          `الهاتف: ${ord.phone}`,
+          `المدينة: ${ord.city}`,
+          `العنوان: ${ord.address}`,
+          `المنتج: ${ord.productName}`,
+          `اللون: ${ord.color} | القياس: ${ord.size} | الكمية: ${ord.qty}`,
+          `المجموع: ${ord.total} DH`
+        ].join('\n');
+
+        let copied = false;
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          copied = document.execCommand('copy');
+          ta.remove();
+        } catch (err) {
+          copied = false;
+        }
+
+        if (copied) {
+          showToast(state.lang === 'fr' ? 'Commande copiée' : 'تم نسخ تفاصيل الطلب');
+        } else {
+          document.getElementById('copyFallbackText').value = text;
+          document.getElementById('copyModal').classList.add('open');
+        }
+      }
+    });
+
+    document.getElementById('closeCopyModal').addEventListener('click', () => {
+      document.getElementById('copyModal').classList.remove('open');
+    });
+
+    document.getElementById('copyModal').addEventListener('click', (e) => {
+      if (e.target.id === 'copyModal') {
+        document.getElementById('copyModal').classList.remove('open');
+      }
+    });
+
+    document.getElementById('copyFallbackBtn').addEventListener('click', () => {
+      const ta = document.getElementById('copyFallbackText');
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast(state.lang === 'fr' ? 'Commande copiée' : 'تم نسخ تفاصيل الطلب');
+      } catch (e) {
+        showToast('حدد النص وانسخه يدوياً');
+      }
+      document.getElementById('copyModal').classList.remove('open');
+    });
+
+    document.getElementById('panel-productsList').addEventListener('click', (e) => {
+      const delProdBtn = e.target.closest('[data-del-prod]');
+      if (delProdBtn) {
+        state.products = state.products.filter(p => p.id !== delProdBtn.dataset.delProd);
+        saveState();
+        renderProductsGrid();
+        renderProductsTables();
+        return;
+      }
+
+      const incBtn = e.target.closest('[data-stock-inc]');
+      if (incBtn) {
+        const prod = state.products.find(p => p.id === incBtn.dataset.stockInc);
+        if (prod) {
+          prod.stock = (Number(prod.stock) || 0) + 1;
+          saveState();
+          renderProductsTables();
+        }
+        return;
+      }
+
+      const decBtn = e.target.closest('[data-stock-dec]');
+      if (decBtn) {
+        const prod = state.products.find(p => p.id === decBtn.dataset.stockDec);
+        if (prod) {
+          prod.stock = Math.max(0, (Number(prod.stock) || 0) - 1);
+          saveState();
+          renderProductsTables();
+        }
+      }
+    });
+
+    document.getElementById('cfgBannerFile').addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const fr = new FileReader();
+      fr.onload = () => {
+        document.getElementById('cfgBannerUrl').value = fr.result;
+      };
+      fr.readAsDataURL(file);
+    });
+
+    document.getElementById('saveSettingsBtn').addEventListener('click', () => {
+      state.store.name = document.getElementById('cfgStoreName').value.trim() || 'STORE CHOPE OFFICIEL';
+      state.store.whatsapp = document.getElementById('cfgWhatsapp').value.trim() || '212636914289';
+      state.store.email = document.getElementById('cfgEmail').value.trim() || 'mohammedaks36@gmail.com';
+      state.store.bannerUrl = document.getElementById('cfgBannerUrl').value.trim() || DEFAULT_STATE.store.bannerUrl;
+
+      const newPin = document.getElementById('cfgAdminPin').value.trim();
+      if (newPin) state.adminPin = newPin;
+      state.api.enabled = document.getElementById('cfgApiEnabled').value === 'true';
+      state.api.platform = document.getElementById('cfgAffPlatform').value.trim();
+      state.api.endpoint = document.getElementById('cfgApiUrl').value.trim();
+      state.api.apiKey = document.getElementById('cfgApiKey').value;
+
+      saveState();
+      renderStoreHeader();
+      showToast(state.lang === 'fr' ? 'Paramètres enregistrés' : 'تم حفظ الإعدادات');
+    });
+
+    document.getElementById('exportBackupBtn').addEventListener('click', () => {
+      try {
+        const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `store-chope-backup-${new Date().toISOString().slice(0, 10)}.json`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        showToast(state.lang === 'fr' ? 'Sauvegarde téléchargée' : 'تم تحميل النسخة الاحتياطية');
+      } catch (err) {
+        showToast('تعذر تحميل النسخة الاحتياطية');
+      }
+    });
+
+    document.getElementById('importBackupInput').addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const fr = new FileReader();
+      fr.onload = () => {
+        try {
+          const imported = JSON.parse(fr.result);
+          if (!imported || typeof imported !== 'object' || !Array.isArray(imported.products)) {
+            throw new Error('Invalid backup');
+          }
+          const def = cloneDefault();
+          state = {
+            ...def,
+            ...imported,
+            store: { ...def.store, ...(imported.store || {}) },
+            api: { ...def.api, ...(imported.api || {}) }
+          };
+          saveState();
+          applyDesign(state.designId);
+          renderStoreHeader();
+          renderCategories();
+          applyLanguage(state.lang);
+          showToast(state.lang === 'fr' ? 'Données restaurées avec succès' : 'تم استرجاع البيانات بنجاح');
+        } catch (err) {
+          showToast(state.lang === 'fr' ? 'Fichier invalide' : 'ملف النسخة الاحتياطية غير صالح');
+        }
+      };
+      fr.readAsText(file);
+      e.target.value = '';
+    });
+
+    logVisitorActivity('دخول إلى STORE CHOPE OFFICIEL');
+    applyDesign(state.designId);
+    renderStoreHeader();
+    renderCategories();
+    applyLanguage(state.lang);
+  </script>
+</body>
+</html>
